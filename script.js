@@ -1,3 +1,6 @@
+// This is the boilerplate code given for you
+// You can modify this code
+// Product data
 const products = [
   { id: 1, name: "Product 1", price: 10 },
   { id: 2, name: "Product 2", price: 20 },
