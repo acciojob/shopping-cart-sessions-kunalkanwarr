@@ -49,11 +49,17 @@ function renderCart(cart) {
 
 // Add product to cart
 function addToCart(product) {
-  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-  cart.push(product);
-  saveCart(cart);
-  renderCart(cart);
+  let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+  // Check if the product already exists in the cart
+  const existingProduct = cart.find(item => item.id === product.id);
+  if (!existingProduct) {
+    cart.push(product);
+    saveCart(cart);
+    renderCart(cart);
+  }
 }
+
 
 // Clear cart
 clearCartBtn.addEventListener("click", () => {
