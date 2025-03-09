@@ -19,6 +19,7 @@ function loadCart() {
 // Save cart to sessionStorage
 function saveCart(cart) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
+  console.log("Cart saved:", sessionStorage.getItem("cart")); // Debugging
 }
 
 // Render products
@@ -42,6 +43,7 @@ function renderCart(cart) {
     li.textContent = `${item.name} - $${item.price}`;
     cartList.appendChild(li);
   });
+  console.log("Cart rendered:", cart); // Debugging
 }
 
 // Add product to cart
@@ -60,9 +62,13 @@ function addToCart(product) {
 // Clear cart
 clearCartBtn.addEventListener("click", () => {
   sessionStorage.removeItem("cart");
+  console.log("Cart cleared from sessionStorage"); // Debugging
   renderCart([]);
 });
 
 // Initialize page
 renderProducts();
 loadCart();
+
+// Debugging: Log session storage on page load
+console.log("Initial sessionStorage:", sessionStorage.getItem("cart"));
